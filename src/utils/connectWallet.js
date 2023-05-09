@@ -17,10 +17,10 @@ const providerOptions = {
 console.log("p",process.env.REACT_APP_INFURA_ID);
 async function connectWallet(handleConnectWallet) {
   //Infura ID Check
-  if (!process.env.REACT_APP_INFURA_ID) {
-    console.log("Missing Infura Id");
-    return;
-  }
+  // if (!process.env.REACT_APP_INFURA_ID) {
+  //   console.log("Missing Infura Id");
+  //   return;
+  // }
   try {
     // Web3Modal
     const web3modal = new Web3Modal({

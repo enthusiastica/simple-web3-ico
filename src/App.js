@@ -1,30 +1,18 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {Col, Row} from 'antd';
 
 import loadContract from "./utils/loadContract";
 import {
-  HomeScreen,
-  TokenScreen,
-  FaqScreen,
-  ContactScreen,
   LoadingScreen,
-  ErrorScreen,
-  TokenDistScreen,
-  FaucetScreen,
-  TransactionScreen,
 } from "./screens";
 import Header from "./components/Header";
 import GlobalContext from "./context/GlobalContext";
 import connectWallet from "./utils/connectWallet";
-import Footer from "./components/Footer";
 import SaleEnds from "./components/SaleEnds";
 import Circle from "./components/Circle";
 import millify from "millify";
-import { ethers } from "ethers";
 import { toast } from "react-toastify";
-import {icoAddress} from "./utils/constants";
 
 import TransactionToast from "./components/TransactionToast";
 import handleError from "./utils/handleError";
@@ -89,11 +77,6 @@ function App() {
 
     try {
       console.log("App.js-91, start deposit");
-      // const tx = await contract.stknICO.invest({
-      //   value: ethers.utils.parseEther((0.0001 * userAmount).toString()),
-      // });
-      // const result = await contract.stknICO.approve(icoAddress, (0.002*userAmount*10**18).toString());
-      // console.log("App.js-96, approve result: ", result);
       const tx = await contract.ico.deposit({'value': (0.001*userAmount*10**18).toString(), gasLimit:100000}).send();
       console.log("App.js-95, ");
       setUserAmount("");
@@ -187,40 +170,35 @@ function App() {
         }}
       >
         {!loading ? (
-          <div className="">
+          <div>
             <Header />
-            <ToastContainer
-              position="top-center"
-              theme="dark"
-              toastStyle={{
-                backgroundColor: "#1e40af",
-                fontWeight: "bold",
-                fontFamily: "poppins",
-                borderRadius: "5rem",
-              }}
-            />
-            <div className="screen-wrapper">
-              <div className="md:ml-6 md:flex md:h-[80vh] md:items-center">
-                <div className="flex justify-center items-center w-full">
-                  <div className="flex justify-center items-center w-full">
-                    <div className="flex flex-col w-full items-center md:mr-5">
-                      <div className="card mt-4">
-                        <div className="text-2xl text-center p-4">ICO Details</div>
-                      </div>
-                      <Circle />
+            <Row>
+              <Col span={8}>
+                <div className="flex justify-left items-center w-full">
+                  <div className="flex flex-col w-full items-center md:mr-5">
+                    <div className="card mt-4">
+                      <div className="text-2xl text-center p-4">ICO Details</div>
                     </div>
+                    <Circle />
                   </div>
-                  <TokenBuy/>
                 </div>
-              </div>
-              <div className="flex justify-center items-center w-full">
-                <SaleEnds />
-              </div>
+              </Col>
+              <Col style={{marginTop: "30px"}} span={16}>
+                <Row>
+                  <Col span={13}>
+                    <div className="flex justify-left items-center w-full">
+                      <SaleEnds />
+                    </div>
+                  </Col>
+                  <Col span={8}>
+                    <div className="flex justify-right items-right w-full">
+                      <TokenBuy/>
+                    </div>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
             </div>
-            <div className="flex justify-center items-end">
-              <Footer />
-            </div>
-          </div>
         ) : (
           <LoadingScreen />
         )}

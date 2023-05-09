@@ -62,32 +62,7 @@ const SaleEnds = () => {
           </div>
 
           {/* Tokens Available */}
-          {icoState.tokensAvailable ? (
-            <div className="w-full">
-              <div className="mb-1">
-                {millify(icoState.tokensAvailable)} STKN
-              </div>
-              <div className="h-4 w-full bg-gray-200 mb-6 rounded-xl text-md">
-                <div
-                  className={`w-${
-                    (icoState.tokensAvailable / 5000000) * 100
-                  }% h-4 bg-teal-700 rounded-xl text-xs font-bold text-center p-0.5 leading-none`}
-                >
-                  {(icoState.tokensAvailable / 5000000) * 100} %
-                </div>
-                Tokens Available
-              </div>
-            </div>
-          ) : (
-            <div className="flex justify-center items-center flex-col mt-10">
-              <div className="text-[1rem] mb-2">
-                Please Connect Wallet for Buying Tokens
-              </div>
-              <div className="btn text-[1rem]" onClick={handleConnectWallet}>
-                Connect Wallet
-              </div>
-            </div>
-          )}
+          
         </div>
       </div>
     </div>

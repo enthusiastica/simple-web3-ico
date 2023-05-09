@@ -184,7 +184,7 @@ function App() {
                   </div>
                 </div>
               </Col>
-              <Col style={{marginTop: "30px"}} span={16}>
+              <Col style={{marginTop: "20px"}} span={16}>
                 <Row>
                   <Col span={13}>
                     <div className="flex justify-left items-center w-full">

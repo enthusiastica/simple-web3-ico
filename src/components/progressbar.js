@@ -26,7 +26,8 @@ function progressbar(props) {
 
     return (
         <>
-            <h1 style={{color: 'white', fontSize: "25px", fontWeight: 'bold'}}>Total Deposit : </h1>
+            <h2 style={{color: 'white', fontSize: "25px", fontWeight: 'bold', marginBottom: "20px"}}>My Deposit : </h2>
+            <h2 style={{color: 'white', fontSize: "20px", fontWeight: 'bold'}}>Total Deposit : </h2>
             <Slider dotStyle={{ borderColor: 'red', borderWidth: 7 }} activeDotStyle={{ borderColor: 'green' }} style={{width: "80%" }} handleStyle={{width: "5px", height: "5px", mark: 'red'}} trackStyle={{height: "10px", backgroundColor: 'cyan'}} min={0} max={1} marks={marks} step={0.01} defaultValue={0.5}/>
             <Row gutter={2}>
                 <Col span={16}>

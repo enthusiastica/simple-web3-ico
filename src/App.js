@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import GlobalContext from "./context/GlobalContext";
 import connectWallet from "./utils/connectWallet";
 import SaleEnds from "./components/SaleEnds";
+import Progressbar from './components/progressbar';
 import Circle from "./components/Circle";
 import millify from "millify";
 import { toast } from "react-toastify";
@@ -196,6 +197,7 @@ function App() {
                     </div>
                   </Col>
                 </Row>
+                <Progressbar softcap = {0.1} hardcap = {1}></Progressbar>
               </Col>
             </Row>
             </div>
